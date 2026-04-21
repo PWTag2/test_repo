@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function getComputerChoice() {
+            let num = Math.floor(Math.random() * 3);
+            if (num == 0) {
+                return "rock";
+            }
+            else if (num == 1) {
+                return "paper";
+            }
+            else {
+                return "scissors"
+            }
+            
+        }
+
+        function getHumanChoice() {
+            input = prompt("Rock, Paper, Scissors say Shoot!");
+            return input
+        }
+
+        
+        let humanScore = 0;
+        let computerScore = 0;
+        function playGame (rounds) {
+            for (let i = 0; i < rounds; i++) {
+              function playRound(humanChoice, computerChoice) {
+                    humanChoice = humanChoice.toLowerCase();
+                    
+                    if (humanChoice === "rock" && computerChoice === "scissors") {
+                            humanScore += 1;
+                            return "Computer: Scissors!  Player Won. Score = " + humanScore
+                            
+                    }
+                    else if (humanChoice === "rock" && computerChoice === "rock") {
+                            return "Computer: Rock. Thats a tie!  "
+                            
+                    }
+                    else if (humanChoice === "rock" && computerChoice === "paper") {
+                            computerScore += 1;
+                            return "Computer: Paper! Computer Won. Score = " + computerScore
+                            
+                    }
+                    else if (humanChoice === "paper" && computerChoice === "scissors") {
+                            computerScore += 1;
+                            return "Computer: Scissors! Computer Won. Score = " + computerScore
+                            
+                    }
+                    else if (humanChoice === "paper" && computerChoice === "paper") {
+                            return "Computer: Paper. Thats a tie!  "
+                            
+                    }
+                    else if (humanChoice === "paper" && computerChoice === "rock") {
+                            humanScore += 1;
+                            return "Computer: Rock!  Player Won. Score = " + humanScore
+                            
+                    }
+                    else if (humanChoice === "scissors" && computerChoice === "paper") {
+                            humanScore += 1;
+                            return "Computer: Paper!  Player Won. Score = " + humanScore
+                            
+                    }
+                    else if (humanChoice === "scissors" && computerChoice === "rock") {
+                            computerScore += 1;
+                            return "Computer: Rock! Computer Won. Score = " + computerScore
+                            
+                    }
+                    else if (humanChoice === "scissors" && computerChoice === "scissors") {
+                            return "Computer: Scissors. Thats a tie!  "
+                            
+                    }
+                
+                }
+          
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+            console.log(playRound(humanSelection, computerSelection))
+            }
+             if (humanScore > computerScore) {
+                    return "Game Over! Player Won! Player Score = " + humanScore + " Computer Score = " + computerScore
+                }
+                else if (humanScore < computerScore) {
+                    return "Game Over! Computer Won! Player Score = " + humanScore + " Computer Score = " + computerScore
+                }
+                else {
+                    return "Game Over! Tie. Play again"
+                }
+        }
+        console.log(playGame(5))
+    </script>
+</body>
+</html>
