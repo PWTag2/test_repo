@@ -30,9 +30,7 @@
         
         let humanScore = 0;
         let computerScore = 0;
-        function playGame (rounds) {
-            for (let i = 0; i < rounds; i++) {
-              function playRound(humanChoice, computerChoice) {
+        function playRound(humanChoice, computerChoice) {
                     humanChoice = humanChoice.toLowerCase();
                     
                     if (humanChoice === "rock" && computerChoice === "scissors") {
@@ -79,11 +77,14 @@
                     }
                 
                 }
-          
-            const humanSelection = getHumanChoice();
-            const computerSelection = getComputerChoice();
-            console.log(playRound(humanSelection, computerSelection))
+            
+        function playGame (rounds) {
+            for (let i = 0; i < rounds; i++) {
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+                console.log(playRound(humanSelection, computerSelection))
             }
+        
              if (humanScore > computerScore) {
                     return "Game Over! Player Won! Player Score = " + humanScore + " Computer Score = " + computerScore
                 }
